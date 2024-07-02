@@ -1,0 +1,29 @@
+/*Contenedor de los botones de login y registro INICIO*/
+.btn-login {
+    border: none;
+    border-radius: 50px;
+    background-color: rgb(25, 25, 143);
+    padding: 8px 20px;
+}
+
+.btn-registrar {
+    border: 1px rgb(25, 25, 143) solid;
+    border-radius: 50px;
+    padding: 0.3em 1em;
+}
+
+@media (max-width: 991px) {
+    .login-container {
+        margin-top: 0.5em;
+        flex-direction: column;
+    }
+
+    .btn-login {
+        width: 100%;
+    }
+
+    .btn-registrar {
+        width: 100%;
+    }
+}
+/*Contenedor de los botones de login y registro FIN*/
