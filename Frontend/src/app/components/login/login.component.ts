@@ -11,8 +11,7 @@ import { LoginModalComponent } from '../modal/login-modal/login-modal.component'
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
-export class LoginComponent /*implements OnInit*/ {
-  /*
+export class LoginComponent implements OnInit {
   userform: Usuario = new Usuario();
   returnUrl!: string;
   msglogin!: string;
@@ -50,5 +49,5 @@ export class LoginComponent /*implements OnInit*/ {
           console.log('Error en conexión', error);
         }
       );
-  }*/
+  }
 }
