@@ -2,14 +2,23 @@
 .btn-login {
     border: none;
     border-radius: 50px;
-    background-color: rgb(25, 25, 143);
+    background-color: #38B29A;
     padding: 8px 20px;
 }
 
+.btn-login:hover {
+    background-color: #32A193;
+}
+
 .btn-registrar {
-    border: 1px rgb(25, 25, 143) solid;
+    border: 2px #38B29A solid;
     border-radius: 50px;
     padding: 0.3em 1em;
+}
+
+.btn-registrar:hover {
+    border: 2px #38B29A solid;
+    background-color: #38B29A
 }
 
 @media (max-width: 991px) {

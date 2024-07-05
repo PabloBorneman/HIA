@@ -1,0 +1,39 @@
+.modal-custom-width {
+  width: 22em; /* Ajusta este valor según sea necesario */
+  margin: auto;
+}
+
+.img-login {
+  display: flex;
+  justify-content: center;
+}
+
+.img-login img {
+  width: 14em;
+  margin-bottom: 2em;
+}
+
+.form-body {
+  display: flex;
+  justify-content: center;
+}
+
+.modal-body form {
+  width: 16em;
+  margin-bottom: 2em;
+}
+
+.form-control {
+  border-radius: 25px;
+}
+
+.btn {
+  background-color: #92e3a9;
+  border-radius: 25px;
+  border: none;
+  width: 100%;
+}
+
+.btn:hover {
+  background-color: #7ec492;
+}

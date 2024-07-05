@@ -6,57 +6,66 @@
   aria-labelledby="registerModalLabel"
   aria-hidden="true"
 >
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="registerModalLabel">Registro</h5>
+  <div class="modal-dialog">
+    <div class="modal-content modal-custom-width">
+      <div class="modal-header border-0 d-flex justify-content-center">
+        <h5 class="modal-title mx-auto" id="registerModalLabel">Registrarse</h5>
         <button
           type="button"
-          class="btn-close"
+          class="btn-close position-absolute end-0 me-3 shadow-none"
           data-bs-dismiss="modal"
           aria-label="Close"
         ></button>
       </div>
       <div class="modal-body">
-        <form>
-          <div class="mb-3">
-            <label for="registerName" class="form-label">Nombre</label>
-            <input
-              type="text"
-              class="form-control"
-              id="registerName"
-              placeholder="Ingrese su nombre"
-            />
-          </div>
-          <div class="mb-3">
-            <label for="registerEmail" class="form-label">Email</label>
-            <input
-              type="email"
-              class="form-control"
-              id="registerEmail"
-              placeholder="name@example.com"
-            />
-          </div>
-          <div class="mb-3">
-            <label for="registerPassword" class="form-label">Contraseña</label>
-            <input
-              type="password"
-              class="form-control"
-              id="registerPassword"
-              placeholder="Ingrese una contraseña"
-            />
-          </div>
-          <div class="mb-3">
-            <label for="registerConfirmPassword" class="form-label">Confirmar Contraseña</label>
-            <input
-              type="password"
-              class="form-control"
-              id="registerConfirmPassword"
-              placeholder="Confirme su contraseña"
-            />
-          </div>
-          <button type="submit" class="btn btn-primary">Registrarse</button>
-        </form>
+        <div class="img-login">
+          <img src="/Login.png" alt="Login" />
+        </div>
+        <div class="form-body">
+          <form>
+            <div class="mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="registerName"
+                placeholder="Nombre"
+              />
+            </div>
+            <div class="mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="registerLastName"
+                placeholder="Apellido"
+              />
+            </div>
+            <div class="mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="registerUser"
+                placeholder="Usuario"
+              />
+            </div>
+            <div class="mb-3">
+              <input
+                type="email"
+                class="form-control"
+                id="registerEmail"
+                placeholder="E-mail"
+              />
+            </div>
+            <div class="mb-3">
+              <input
+                type="password"
+                class="form-control"
+                id="registerPassword"
+                placeholder="Contraseña"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Registrarse</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
