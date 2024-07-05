@@ -1,0 +1,49 @@
+/* home.component.css */
+.background-image {
+  background-image: url("/Background.jpg"); /* Ruta relativa a la carpeta assets */
+  background-size: cover; /* Cubrir todo el espacio del contenedor */
+  background-position: center center; /* Centrar la imagen */
+  height: 100vh; /* Altura del 100% del viewport */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.titulo-home {
+  font-size: 4em;
+  color: #97ebaf;
+  margin: 0;
+  padding: 0;
+}
+
+.subtitulo-home {
+  font-size: 1.2em;
+  color: white;
+}
+
+.btn {
+  background-color: #92e3a9;
+  border-radius: 25px;
+  border: none;
+}
+
+.btn:hover {
+  background-color: #7ec492;
+}
+
+@media (min-width: 1366px) {
+  .titulo-home {
+    font-size: 5em;
+  }
+}
+
+@media (max-width: 375px) {
+  .titulo-home {
+    font-size: 3em;
+  }
+
+  .subtitulo-home {
+    font-size: 1em;
+    color: white;
+  }
+}
