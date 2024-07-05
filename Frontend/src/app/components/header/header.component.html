@@ -35,16 +35,16 @@
           class="navbar-nav justify-content-center align-items-center text-center fs-5 flex-grow-1"
         >
           <li class="nav-item mx-2">
-            <a class="nav-link active" aria-current="page" [routerLink]="['/home']">Home</a>
+            <a class="nav-link active" aria-current="page" [routerLink]="['/']">Home</a>
           </li>
           <li class="nav-item mx-2">
-            <a class="nav-link" href="#">Cursos</a>
+            <a class="nav-link" [routerLink]="['cursos']">Cursos</a>
           </li>
           <li class="nav-item mx-2">
-            <a class="nav-link" href="#">Nosotros</a>
+            <a class="nav-link" [routerLink]="['nosotros']">Nosotros</a>
           </li>
           <li class="nav-item mx-2">
-            <a class="nav-link" href="#">Contacto</a>
+            <a class="nav-link" [routerLink]="['contacto']">Contacto</a>
           </li>
         </ul>
         <!-- Login -->
