@@ -1,0 +1,60 @@
+.custom-shape-divider-top-1720194891 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1720194891 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 100px;
+}
+
+.custom-shape-divider-top-1720194891 .shape-fill {
+  fill: #77ddc6;
+}
+
+.custom-shape-divider-top-1720195182 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-top-1720195182 svg {
+  position: relative;
+  display: block;
+  width: calc(113% + 1.3px);
+  height: 55px;
+  transform: rotateY(180deg);
+}
+
+.custom-shape-divider-top-1720195182 .shape-fill {
+  fill: #77ddc6;
+}
+
+.contacto-banner {
+    height: 100vh;
+    background-color: rgb(221, 221, 221);
+}
+
+.container-contacto {
+    border: 1px solid red;
+    padding-top: 3em;
+    height: 70vh;
+}
+
+.img-container {
+    height: 70%;
+}
+
+.img-container img {
+    height: 100%;
+}
