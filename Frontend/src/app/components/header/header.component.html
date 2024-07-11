@@ -35,7 +35,9 @@
           class="navbar-nav justify-content-center align-items-center text-center fs-5 flex-grow-1"
         >
           <li class="nav-item mx-2">
-            <a class="nav-link active" aria-current="page" [routerLink]="['/']">Home</a>
+            <a class="nav-link active" aria-current="page" [routerLink]="['/']"
+              >Home</a
+            >
           </li>
           <li class="nav-item mx-2">
             <a class="nav-link" [routerLink]="['cursos']">Cursos</a>
@@ -48,7 +50,12 @@
           </li>
         </ul>
         <!-- Login -->
-        <app-login></app-login>
+        <app-login *ngIf="!loginService.userLoggedIn()"></app-login>
+
+        <!-- Logout -->
+        <a *ngIf="loginService.userLoggedIn()" (click)="logout()" class="btn btn-success">
+          {{loginService.userLogged()}} (logout)
+        </a>
       </div>
     </div>
   </div>

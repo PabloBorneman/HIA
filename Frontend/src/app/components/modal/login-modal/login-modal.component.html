@@ -15,6 +15,7 @@
           class="btn-close position-absolute end-0 me-3 shadow-none"
           data-bs-dismiss="modal"
           aria-label="Close"
+          id="btn-close-modal"
         ></button>
       </div>
       <div class="modal-body">
@@ -25,10 +26,12 @@
           <form>
             <div class="mb-3">
               <input
-                type="usuario"
+                type="text"
                 class="form-control"
                 id="loginUser"
                 placeholder="Usuario"
+                [(ngModel)]="userform.username"
+                name="usuario"
               />
             </div>
             <div class="mb-3">
@@ -37,9 +40,12 @@
                 class="form-control"
                 id="loginPassword"
                 placeholder="Contraseña"
+                [(ngModel)]="userform.password"
+                name="password"
               />
             </div>
-            <button type="submit" class="btn">Login</button>
+            <button type="submit" class="btn" (click)="login()">Login</button>
+            <div class="alert-danger">{{msglogin}}</div>
           </form>
         </div>
       </div>
