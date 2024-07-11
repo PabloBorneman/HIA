@@ -1,0 +1,45 @@
+.seccion-nosotros {
+  background-color: rgb(221, 221, 221);
+}
+
+.wave-nosotros {
+  width: 100%;
+  position: absolute;
+}
+
+.nosotros-container {
+  position: relative;
+  padding-top: 6em;
+}
+
+h1 {
+  color: #343a40;
+}
+
+.card {
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  color: #00b395;
+}
+
+.card-text {
+  color: #6c757d;
+}
+
+.container {
+  max-width: 1200px;
+}
+
+.text-center {
+  margin-bottom: 2rem;
+}
+
+.card-img-top {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
