@@ -1,20 +1,23 @@
-const express = require("express");
-const cors = require("cors");
-const { mongoose } = require("./database");
+const express = require('express');
+const cors = require('cors');
+const mongoose = require('./database');
 
-var app = express();
+const app = express();
 
-//Middlewares
+// Middlewares
 app.use(express.json());
-app.use(cors({ origin: "http://localhost:4200" }));
+app.use(cors({ origin: 'http://localhost:4200' }));
 
-//Cargamos el archivo de rutas
-app.use("/api/usuario", require("./routes/usuario.route"));
+// Cargamos el modulo de direccionamiento de rutas
 
-//Se define el puerto
-app.set("port", process.env.PORT || 3000);
+app.use('/api/usuario', require('./routes/usuario.route'));
+app.use('/api/perfil', require('./routes/perfil.router'));
+app.use('/api/curso', require('./routes/curso.router'));  // Agregamos esta línea
 
-//Iniciando el servidor
-app.listen(app.get("port"), () => {
-  console.log(`Server started on port`, app.get("port"));
+// Configuración del puerto
+app.set('port', process.env.PORT || 3000);
+
+// Iniciando el servidor
+app.listen(app.get('port'), () => {
+  console.log(`Server iniciado en el puerto`, app.get('port'));
 });
