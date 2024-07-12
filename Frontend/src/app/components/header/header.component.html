@@ -32,32 +32,32 @@
           </li>
           <div *ngIf="loginService.userLoggedIn() && loginService.isAdmin()">
             <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/crud-curso']">Crud de Cursos <i class="bi bi-plus-circle"></i></a>
+              <a class="nav-link" [routerLink]="['/crud-curso']">Crud de Cursos</a>
             </li>
           </div>
           <div *ngIf="loginService.userLoggedIn() && loginService.isAdmin()">
             <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/crud-usuario']">Crud de Usuarios <i class="bi bi-plus-circle"></i></a>
+              <a class="nav-link" [routerLink]="['/crud-usuario']">Crud de Usuarios</a>
             </li>
           </div>
           <div *ngIf="loginService.userLoggedIn() && loginService.isAdmin()">
             <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/inscripcion']">Inscripcion<i class="bi bi-plus-circle"></i></a>
+              <a class="nav-link" [routerLink]="['/inscripcion']">Inscripcion</a>
             </li>
           </div>
           <div *ngIf="loginService.userLoggedIn() && loginService.isProfe()">
             <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/dictados']">Cursos Dictados<i class="bi bi-book"></i></a>
+              <a class="nav-link" [routerLink]="['/dictados']">Cursos Dictados</a>
             </li>
           </div>
           <div *ngIf="loginService.userLoggedIn() && loginService.isProfe()">
             <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/inscripciones']">Inscripciones personales<i class="bi bi-book"></i></a>
+              <a class="nav-link" [routerLink]="['/inscripciones']">Inscribir Usuarios</a>
             </li>
           </div>
           <div *ngIf="loginService.userLoggedIn()">
             <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/mis-cursos']">Mis Cursos <i class="bi bi-book"></i></a>
+              <a class="nav-link" [routerLink]="['/mis-cursos']">Mis Cursos</a>
             </li>
           </div>
         </ul>
@@ -65,9 +65,11 @@
         <app-login *ngIf="!loginService.userLoggedIn()"></app-login>
 
         <!-- Logout -->
-        <a *ngIf="loginService.userLoggedIn()" (click)="logout()" class="btn btn-success">
-          {{loginService.userLogged()}} (logout)
-        </a>
+        <div class="d-flex align-items-center justify-content-center">
+          <a *ngIf="loginService.userLoggedIn()" (click)="logout()" class="btn logout-btn">
+            {{loginService.userLogged()}} (logout)
+          </a>
+        </div>
       </div>
     </div>
   </div>

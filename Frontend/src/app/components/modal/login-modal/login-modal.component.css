@@ -15,12 +15,20 @@
 
 .form-body {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .modal-body form {
   width: 16em;
   margin-bottom: 2em;
+}
+
+.buttons {
+  width: 16em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .form-control {
@@ -37,4 +45,21 @@
 
 .btn:hover {
   background-color: #7ec492;
+}
+
+.alert {
+  width: 16em;
+  text-align: center;
+}
+
+.btn-registro {
+  background-color: white;
+  color: rgb(113, 175, 216);
+  text-decoration: underline;
+}
+
+.btn-registro:hover {
+  background-color: white;
+  color: #7ec492;
+  text-decoration: underline;
 }
