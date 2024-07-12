@@ -21,6 +21,16 @@
           <input type="text" id="linkvideo" required [(ngModel)]="nuevoCurso.linkvideo" name="linkvideo" class="form-control">
         </div>
 
+        <div class="form-group mb-3">
+          <label for="linkvideoresumen">Link del Video Resumen:</label>
+          <input type="text" id="linkvideoresumen" [(ngModel)]="nuevoCurso.linkvideoresumen" name="linkvideoresumen" class="form-control">
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="precio">Precio:</label>
+          <input type="number" id="precio" [(ngModel)]="nuevoCurso.precio" name="precio" class="form-control">
+        </div>
+
         <button type="submit" class="btn btn-primary">{{ editando ? 'Actualizar Curso' : 'Agregar Curso' }}</button>
       </form>
 
@@ -36,6 +46,8 @@
               <th>Título</th>
               <th>Descripción</th>
               <th>Link del Video</th>
+              <th>Link del Video Resumen</th>
+              <th>Precio</th>
               <th>Acciones</th>
             </tr>
           </thead>
@@ -44,6 +56,8 @@
               <td>{{ curso.titulo }}</td>
               <td>{{ curso.descripcion }}</td>
               <td>{{ curso.linkvideo }}</td>
+              <td>{{ curso.linkvideoresumen }}</td>
+              <td>{{ curso.precio }}</td>
               <td>
                 <button class="btn btn-info btn-sm" (click)="cargarCurso(curso._id)">
                   <i class="bi bi-pencil-square"></i> Editar

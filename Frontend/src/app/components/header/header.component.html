@@ -50,6 +50,11 @@
               <a class="nav-link" [routerLink]="['/dictados']">Cursos Dictados<i class="bi bi-book"></i></a>
             </li>
           </div>
+          <div *ngIf="loginService.userLoggedIn() && loginService.isProfe()">
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/inscripciones']">Inscripciones personales<i class="bi bi-book"></i></a>
+            </li>
+          </div>
           <div *ngIf="loginService.userLoggedIn()">
             <li class="nav-item">
               <a class="nav-link" [routerLink]="['/mis-cursos']">Mis Cursos <i class="bi bi-book"></i></a>
