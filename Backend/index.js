@@ -4,8 +4,6 @@ const mongoose = require("./database");
 
 const app = express();
 
-// Configura MercadoPago
-
 // Middlewares
 app.use(express.json());
 app.use(cors({ origin: "http://localhost:4200" }));
