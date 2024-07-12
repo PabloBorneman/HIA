@@ -14,6 +14,7 @@ import { CursosDictadosComponent } from './components/cursos-dictados/cursos-dic
 import { MisCursosComponent } from './components/mis-cursos/mis-cursos.component';
 import { InscripcionesComponent } from './components/inscripciones/inscripciones.component';
 import { CursoEspecificoComponent } from './components/curso-especifico/curso-especifico.component';
+import { EstadisticasCursosComponent } from './components/estadisticas-cursos/estadisticas-cursos.component';
 
 @Component({
   selector: 'app-root',
@@ -35,7 +36,8 @@ import { CursoEspecificoComponent } from './components/curso-especifico/curso-es
     CursosDictadosComponent,
     MisCursosComponent,
     InscripcionesComponent,
-    CursoEspecificoComponent
+    CursoEspecificoComponent,
+    EstadisticasCursosComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

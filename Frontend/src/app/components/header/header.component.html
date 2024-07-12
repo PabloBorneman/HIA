@@ -55,6 +55,11 @@
               <a class="nav-link" [routerLink]="['/inscripciones']">Inscribir Usuarios</a>
             </li>
           </div>
+          <div *ngIf="loginService.userLoggedIn() && loginService.isProfe()">
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/estadisticas-cursos']">Mis Estadisticas</a>
+            </li>
+          </div>
           <div *ngIf="loginService.userLoggedIn()">
             <li class="nav-item">
               <a class="nav-link" [routerLink]="['/mis-cursos']">Mis Cursos</a>

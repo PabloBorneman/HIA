@@ -12,6 +12,7 @@ import { CursosDictadosComponent } from './components/cursos-dictados/cursos-dic
 import { MisCursosComponent } from './components/mis-cursos/mis-cursos.component';
 import { InscripcionesComponent } from './components/inscripciones/inscripciones.component';
 import { CursoEspecificoComponent } from './components/curso-especifico/curso-especifico.component';
+import { EstadisticasCursosComponent } from './components/estadisticas-cursos/estadisticas-cursos.component';
 
 export const routes: Routes = [
   {
@@ -65,5 +66,9 @@ export const routes: Routes = [
   {
     path: 'curso-especifico/:id',
     component: CursoEspecificoComponent,
+  },
+  {
+    path: 'estadisticas-cursos',
+    component: EstadisticasCursosComponent,
   },
 ];

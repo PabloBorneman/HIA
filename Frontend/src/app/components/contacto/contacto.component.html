@@ -1,11 +1,9 @@
 <section class="contacto-banner">
   <div class="svg-container position-absolute w-100 h-100">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-      <path
-        fill="#00cba9"
-        fill-opacity="1"
-        d="M0,256L21.8,266.7C43.6,277,87,299,131,261.3C174.5,224,218,128,262,106.7C305.5,85,349,139,393,165.3C436.4,192,480,192,524,213.3C567.3,235,611,277,655,288C698.2,299,742,277,785,272C829.1,267,873,277,916,256C960,235,1004,181,1047,170.7C1090.9,160,1135,192,1178,192C1221.8,192,1265,160,1309,170.7C1352.7,181,1396,235,1418,261.3L1440,288L1440,0L1418.2,0C1396.4,0,1353,0,1309,0C1265.5,0,1222,0,1178,0C1134.5,0,1091,0,1047,0C1003.6,0,960,0,916,0C872.7,0,829,0,785,0C741.8,0,698,0,655,0C610.9,0,567,0,524,0C480,0,436,0,393,0C349.1,0,305,0,262,0C218.2,0,175,0,131,0C87.3,0,44,0,22,0L0,0Z"
-      ></path>
+      <path fill="#00cba9" fill-opacity="1"
+            d="M0,256L21.8,266.7C43.6,277,87,299,131,261.3C174.5,224,218,128,262,106.7C305.5,85,349,139,393,165.3C436.4,192,480,192,524,213.3C567.3,235,611,277,655,288C698.2,299,742,277,785,272C829.1,267,873,277,916,256C960,235,1004,181,1047,170.7C1090.9,160,1135,192,1178,192C1221.8,192,1265,160,1309,170.7C1352.7,181,1396,235,1418,261.3L1440,288L1440,0L1418.2,0C1396.4,0,1353,0,1309,0C1265.5,0,1222,0,1178,0C1134.5,0,1091,0,1047,0C1003.6,0,960,0,916,0C872.7,0,829,0,785,0C741.8,0,698,0,655,0C610.9,0,567,0,524,0C480,0,436,0,393,0C349.1,0,305,0,262,0C218.2,0,175,0,131,0C87.3,0,44,0,22,0L0,0Z">
+      </path>
     </svg>
   </div>
   <div class="container container-contacto">
@@ -13,7 +11,7 @@
       <!-- Columna de la imagen -->
       <div class="col-md-6 text-center text-md-start">
         <div class="img-container">
-          <img src="/Contacto.png" alt="Contacto" class="img-fluid" />
+          <img src="/Contacto.png" alt="Contacto" class="img-fluid"/>
         </div>
       </div>
       <!-- Columna del contenido -->
@@ -43,8 +41,7 @@
             style="border: 0"
             allowfullscreen=""
             loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
       <div class="contacto-item">
@@ -53,47 +50,15 @@
         <p>
           Puedes llenar el siguiente formulario, te responderemos a la brevedad.
         </p>
-        <form name="formulario-contacto" id="form">
-          <input
-            type="text"
-            name="nombre"
-            placeholder="Nombre"
-            class="form-control mb-2"
-          />
-          <input
-            type="text"
-            name="telefono"
-            placeholder="Teléfono"
-            class="form-control mb-2"
-            required
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Correo"
-            class="form-control mb-2"
-            required
-          />
-          <input
-            type="text"
-            name="asunto"
-            placeholder="Asunto"
-            class="form-control mb-2"
-            pattern="[a-z A-Z]+"
-            minlength="3"
-            maxlength="20"
-            required
-          />
-          <textarea
-            name="mensaje"
-            rows="7"
-            placeholder="Mensaje"
-            class="form-control mb-2"
-            maxlength="250"
-            required
-          ></textarea>
-          <input type="submit" id="button" value="Enviar" />
+        <form name="formulario-contacto" id="form" (ngSubmit)="onSubmit(form)" #form="ngForm">
+          <input type="text" name="nombre" placeholder="Nombre" class="form-control mb-2" ngModel required/>
+          <input type="text" name="telefono" placeholder="Teléfono" class="form-control mb-2" ngModel required/>
+          <input type="email" name="email" placeholder="Correo" class="form-control mb-2" ngModel required/>
+          <input type="text" name="asunto" placeholder="Asunto" class="form-control mb-2" ngModel required/>
+          <textarea name="mensaje" rows="7" placeholder="Mensaje" class="form-control mb-2" ngModel required></textarea>
+          <input type="submit" id="button" value="Enviar" class="btn btn-primary"/>
         </form>
+        <p>{{ mensaje }}</p>
       </div>
       <div class="contacto-item">
         <i class="bi bi-person-circle"></i>
