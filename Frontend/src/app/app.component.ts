@@ -12,6 +12,7 @@ import { CrudCursoComponent } from './components/crud-curso/crud-curso.component
 import { InscripcionComponent } from './components/inscripcion/inscripcion.component';
 import { CursosDictadosComponent } from './components/cursos-dictados/cursos-dictados.component';
 import { MisCursosComponent } from './components/mis-cursos/mis-cursos.component';
+import { InscripcionesComponent } from './components/inscripciones/inscripciones.component';
 
 @Component({
   selector: 'app-root',
@@ -31,7 +32,8 @@ import { MisCursosComponent } from './components/mis-cursos/mis-cursos.component
     CrudUsuarioComponent,
     InscripcionComponent,
     CursosDictadosComponent,
-    MisCursosComponent
+    MisCursosComponent,
+    InscripcionesComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

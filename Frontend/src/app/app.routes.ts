@@ -10,6 +10,7 @@ import { CrudUsuarioComponent } from './components/crud-usuario/crud-usuario.com
 import { InscripcionComponent } from './components/inscripcion/inscripcion.component';
 import { CursosDictadosComponent } from './components/cursos-dictados/cursos-dictados.component';
 import { MisCursosComponent } from './components/mis-cursos/mis-cursos.component';
+import { InscripcionesComponent } from './components/inscripciones/inscripciones.component';
 
 export const routes: Routes = [
   {
@@ -55,7 +56,11 @@ export const routes: Routes = [
   {
     path: 'mis-cursos',
     component: MisCursosComponent,
-  }
+  },
+  {
+    path: 'inscripciones',
+    component: InscripcionesComponent,
+  },
 
 ];
 
