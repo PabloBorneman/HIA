@@ -1,0 +1,29 @@
+.admin-background {
+  background-color: #f8f9fa; /* Gris claro */
+}
+
+.background-svg {
+  position: absolute;
+}
+
+.crud-user-container {
+  padding-top: 5em;
+  padding-bottom: 5em;
+  border: none;
+  max-width: 800px;
+}
+
+.custom-header {
+    padding-top: 1em;
+}
+
+.card-body {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.table-custom tbody,
+.table-custom td,
+.table-custom th {
+  border: none; /* Elimina los bordes del tbody */
+}

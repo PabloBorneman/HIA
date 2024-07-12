@@ -24,7 +24,6 @@
         <div class="form-body">
           <form (ngSubmit)="agregarUsuario()">
             <div class="mb-3 form-group">
-              <label for="username">Username:</label>
               <input
                 type="text"
                 id="username"
@@ -32,11 +31,11 @@
                 [(ngModel)]="nuevoUsuario.username"
                 name="username"
                 class="form-control"
+                placeholder="Usuario"
               />
             </div>
 
             <div class="mb-3 form-group">
-              <label for="password">Password:</label>
               <input
                 type="password"
                 id="password"
@@ -44,11 +43,11 @@
                 [(ngModel)]="nuevoUsuario.password"
                 name="password"
                 class="form-control"
+                placeholder="Contraseña"
               />
             </div>
 
             <div class="mb-3 form-group">
-              <label for="nombres">Nombres:</label>
               <input
                 type="text"
                 id="nombres"
@@ -56,11 +55,11 @@
                 [(ngModel)]="nuevoUsuario.nombres"
                 name="nombres"
                 class="form-control"
+                placeholder="Nombre"
               />
             </div>
 
             <div class="mb-3 form-group">
-              <label for="apellido">Apellido:</label>
               <input
                 type="text"
                 id="apellido"
@@ -68,10 +67,11 @@
                 [(ngModel)]="nuevoUsuario.apellido"
                 name="apellido"
                 class="form-control"
+                placeholder="Apellido"
               />
             </div>
 
-            <div class="mb-3 form-group">
+            <div class="mb-3 form-group text-center">
               <label for="perfil">Perfil:</label>
               <select
                 id="perfil"
@@ -80,11 +80,15 @@
                 name="perfil"
                 class="form-control"
               >
-                <option *ngFor="let perfil of perfiles" [value]="perfil._id">{{ perfil.nombre }}</option>
+                <option *ngFor="let perfil of perfiles" [value]="perfil._id">
+                  {{ perfil.nombre }}
+                </option>
               </select>
             </div>
 
-            <button type="submit" class="btn btn-primary">Registrar Usuario</button>
+            <button type="submit" class="btn btn-primary">
+              Registrar Usuario
+            </button>
           </form>
 
           <div *ngIf="mensaje" class="alert alert-info mt-3">

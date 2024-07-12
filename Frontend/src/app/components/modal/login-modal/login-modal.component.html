@@ -23,9 +23,8 @@
           <img src="/Login.png" alt="Login" />
         </div>
         <div class="form-body">
-          <form name="form">
+          <form name="form" (ngSubmit)="login()">
             <div class="mb-3 form-group">
-              <label for="username">Username</label>
               <input
                 type="text"
                 class="form-control"
@@ -36,7 +35,6 @@
               />
             </div>
             <div class="mb-3 form-group">
-              <label for="password">Password</label>
               <input
                 type="password"
                 class="form-control"
@@ -46,15 +44,27 @@
                 [(ngModel)]="userform.password"
               />
             </div>
-            <button type="submit" class="btn btn-primary" (click)="login()">Login</button>
-            <div *ngIf="msglogin" class="alert alert-danger mt-3">
-              {{msglogin}}
-            </div>
-            <div *ngIf="msgSuccess" class="alert alert-success mt-3">
-              {{msgSuccess}}
-            </div>
           </form>
-          <button class="btn btn-secondary mt-2" (click)="redirectToRegister()">Crear Nuevo Usuario</button> <!-- Botón para redirigir al formulario de registro -->
+          <div class="buttons">
+            <button type="submit" class="btn btn-primary" (click)="login()">
+              Login
+            </button>
+            <button
+              class="btn btn-registro mt-2"
+              (click)="redirectToRegister()"
+              data-bs-toggle="modal"
+              data-bs-target="#registerModal"
+              data-bs-dismiss="modal"
+            >
+              Crear Nuevo Usuario
+            </button>
+          </div>
+          <div *ngIf="msglogin" class="alert alert-danger mt-3">
+            {{ msglogin }}
+          </div>
+          <div *ngIf="msgSuccess" class="alert alert-success mt-3">
+            {{ msgSuccess }}
+          </div>
         </div>
       </div>
     </div>

@@ -1,8 +1,25 @@
 /*Cuerpo del menú lateral INICIO*/
 @media (max-width: 991px) {
-    .menu-lateral {
-        background-color: rgba(255, 255, 255, 0.15);
-        backdrop-filter: blur(10px);
-    }
+  .menu-lateral {
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+  }
 }
 /*Cuerpo del menú lateral FIN*/
+
+.btn {
+  background-color: #92e3a9;
+  border-radius: 25px;
+  border: none;
+  color: black;
+}
+
+.btn:hover {
+  background-color: #7ec492;
+}
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  height: 100%; /* Ajusta este valor según sea necesario */
+}
