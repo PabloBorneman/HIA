@@ -1,3 +1,9 @@
+.navbar {
+  position: absolute;
+  z-index: 1050;
+  width: 100%;
+}
+
 /*Cuerpo del menú lateral INICIO*/
 @media (max-width: 991px) {
   .menu-lateral {

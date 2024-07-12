@@ -3,9 +3,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
   background-color: #f4f4f9;
-  padding: 20px;
+  width: 50%;
+  z-index: 1; /* Asegura que el contenido esté por encima de la imagen */
+  position: relative;
 }
 
 h2 {
@@ -14,7 +15,7 @@ h2 {
   margin-bottom: 20px;
   text-align: center;
   color: #333;
-  max-width: 600px;
+  max-width: 900px;
 }
 
 #chart {
@@ -30,4 +31,72 @@ h2 {
 canvas {
   display: block;
   margin: 0 auto;
+}
+
+/* Ajustar el margen superior del contenido para que no se superponga con el header */
+.content {
+  margin-top: 70px; /* Ajusta este valor según la altura de tu navbar */
+}
+
+.admin-background {
+  position: relative;
+  background-color: #353535; /* Gris oscuro */
+  padding-top: 6em;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 0; /* Coloca la imagen detrás del contenido */
+}
+
+.background-svg {
+  background-color: #999999; /* Fondo gris para el gráfico */
+  border-radius: 25px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para darle un poco de profundidad */
+}
+
+.crud-user-container {
+  padding-top: 5em;
+  padding-bottom: 5em;
+  border: none;
+  background-color: #f9f9f9; /* Fondo claro para el contenedor */
+  border-radius: 25px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para el contenedor */
+  position: relative;
+  z-index: 1; /* Asegura que el contenedor esté por encima de la imagen */
+}
+
+.card-body {
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+.img-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  max-width: 50%;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.btn-custom {
+  background-color: #92e3a9;
+  border-radius: 25px;
+  border: none;
+  width: 100%;
+  color: black;
+  margin-top: 1.6em;
+  margin-bottom: 1em;
+}
+
+.btn-custom:hover {
+  background-color: #7ec492;
 }
