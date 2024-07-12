@@ -42,16 +42,27 @@ export class CursoEspecificoComponent implements OnInit {
     }
 
     // Cargar el SDK de MercadoPago
-    const script = document.createElement('script');
+    /*const script = document.createElement('script');
     script.src = 'https://sdk.mercadopago.com/js/v2';
     script.type = 'text/javascript';
     script.onload = () => {
       this.initializeMercadoPago();
     };
-    document.body.appendChild(script);
+    document.body.appendChild(script);*/
   }
 
-  initializeMercadoPago(): void {
+  initializeButton(): void {
+    const checkoutBtn = document.getElementById('checkout-btn');
+    if (checkoutBtn) {
+      checkoutBtn.addEventListener('click', () => {
+        window.location.href = 'https://mpago.la/2YRq4Vp';
+      });
+    } else {
+      console.error('Botón de pago no encontrado'); // Mensaje de depuración
+    }
+  }
+
+  /*initializeMercadoPago(): void {
     const mp = new MercadoPago('TEST-6242e4ff-ffc4-4b3d-80b2-5d6efe2b1021', {
       locale: 'es-AR'
     });
@@ -73,7 +84,7 @@ export class CursoEspecificoComponent implements OnInit {
         }
       }
     });
-  }
+  }*/
 
   createCheckoutButton(mp: any, preferenceId: string): void {
     const bricksBuilder = mp.bricks();
