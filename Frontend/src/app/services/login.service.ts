@@ -3,50 +3,86 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class LoginService {
   hostBase: string;
 
-  constructor(private http: HttpClient) {
-    this.hostBase = 'http://localhost:3000/api/usuario/';
+  constructor(private _http: HttpClient) {
+    this.hostBase = "http://localhost:3000/api/usuario/";
   }
 
   public login(username: string, password: string): Observable<any> {
-    const httpOptions = {
+    const httpOption = {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-      }),
+        'Content-Type': 'application/json'
+      })
     };
-
-    const body = JSON.stringify({ username, password });
-    console.log(body);
-
-    return this.http.post(this.hostBase + 'login', body, httpOptions);
+    let body = JSON.stringify({ username: username, password: password });
+    return this._http.post(this.hostBase + 'login', body, httpOption);
   }
 
   public logout() {
-    sessionStorage.removeItem('user');
-    sessionStorage.removeItem('perfil');
-    sessionStorage.removeItem('userid');
+    sessionStorage.removeItem("token");
+    sessionStorage.removeItem("user");
+    sessionStorage.removeItem("perfil");
+    sessionStorage.removeItem("userid");
   }
 
-  public userLoggedIn() {
-    var resultado = false;
-    var usuario = sessionStorage.getItem('user');
-    if (usuario != null) {
-      resultado = true;
+  public userLoggedIn(): boolean {
+    return sessionStorage.getItem("user") !== null;
+  }
+
+  public userLogged(): string | null {
+    return sessionStorage.getItem("user");
+  }
+
+  public idLogged(): string | null {
+    return sessionStorage.getItem("userid");
+  }
+
+  public isAdmin(): boolean {
+    return this.perfilAdmin();
+  }
+
+  public isProfe(): boolean {
+    return this.perfilProfesional();
+  }
+
+  public isUsu(): boolean {
+    return this.perfilUsuario();
+  }
+
+  public getPerfil(): string | null {
+    return sessionStorage.getItem("perfil");
+  }
+
+  public perfilAdmin(): boolean {
+    const perfil = this.getPerfil();
+    if (perfil) {
+      return perfil.trim().toLowerCase() === 'admin';
     }
-    return resultado;
+    return false;
   }
 
-  public userLogged() {
-    var usuario = sessionStorage.getItem('user');
-    return usuario;
+  public perfilProfesional(): boolean {
+    const perfil = this.getPerfil();
+    if (perfil) {
+      return perfil.trim().toLowerCase() === 'profesional';
+    }
+    return false;
   }
 
-  public idLogged() {
-    var id = sessionStorage.getItem('userid');
-    return id;
+  public perfilUsuario(): boolean {
+    const perfil = this.getPerfil();
+    if (perfil) {
+      return perfil.trim().toLowerCase() === 'usuario';
+    }
+    return false;
+  }
+
+
+  public getToken(): string {
+    return sessionStorage.getItem("token") || '';
   }
 }

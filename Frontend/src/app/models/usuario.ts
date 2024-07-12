@@ -1,24 +1,31 @@
+import { Perfil } from "./perfil";
+
 export class Usuario {
   _id!: string;
   username!: string;
   password!: string;
-  nombre!: string;
+  nombres!: string;
   apellido!: string;
-  perfil!: string;
+  perfil: Perfil | null;  // Perfil puede ser null
+  cursos!: string[];  // Array de IDs de cursos
+  cursosImpartidos!: string[];  // Array de IDs de cursos impartidos
 
   constructor(
-    id: string = '',
-    username: string = '',
-    password: string = '',
-    nombre: string = '',
-    apellido: string = '',
-    perfil: string = ''
+
+    username: string = "",
+    password: string = "",
+    nombres: string = "",
+    apellido: string = "",
+    perfil: Perfil | null = null,
+    cursos: string[] = [],
+    cursosImpartidos: string[] = []
   ) {
-    this._id = id;
     this.username = username;
     this.password = password;
-    this.nombre = nombre;
+    this.nombres = nombres;
     this.apellido = apellido;
     this.perfil = perfil;
+    this.cursos = cursos;
+    this.cursosImpartidos = cursosImpartidos;
   }
 }

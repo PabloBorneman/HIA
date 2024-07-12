@@ -22,49 +22,74 @@
           <img src="/Registro.png" alt="Registro" />
         </div>
         <div class="form-body">
-          <form>
-            <div class="mb-3">
+          <form (ngSubmit)="agregarUsuario()">
+            <div class="mb-3 form-group">
+              <label for="username">Username:</label>
               <input
                 type="text"
+                id="username"
+                required
+                [(ngModel)]="nuevoUsuario.username"
+                name="username"
                 class="form-control"
-                id="registerName"
-                placeholder="Nombre"
               />
             </div>
-            <div class="mb-3">
-              <input
-                type="text"
-                class="form-control"
-                id="registerLastName"
-                placeholder="Apellido"
-              />
-            </div>
-            <div class="mb-3">
-              <input
-                type="text"
-                class="form-control"
-                id="registerUser"
-                placeholder="Usuario"
-              />
-            </div>
-            <div class="mb-3">
-              <input
-                type="email"
-                class="form-control"
-                id="registerEmail"
-                placeholder="E-mail"
-              />
-            </div>
-            <div class="mb-3">
+
+            <div class="mb-3 form-group">
+              <label for="password">Password:</label>
               <input
                 type="password"
+                id="password"
+                required
+                [(ngModel)]="nuevoUsuario.password"
+                name="password"
                 class="form-control"
-                id="registerPassword"
-                placeholder="Contraseña"
               />
             </div>
-            <button type="submit" class="btn btn-primary">Registrarse</button>
+
+            <div class="mb-3 form-group">
+              <label for="nombres">Nombres:</label>
+              <input
+                type="text"
+                id="nombres"
+                required
+                [(ngModel)]="nuevoUsuario.nombres"
+                name="nombres"
+                class="form-control"
+              />
+            </div>
+
+            <div class="mb-3 form-group">
+              <label for="apellido">Apellido:</label>
+              <input
+                type="text"
+                id="apellido"
+                required
+                [(ngModel)]="nuevoUsuario.apellido"
+                name="apellido"
+                class="form-control"
+              />
+            </div>
+
+            <div class="mb-3 form-group">
+              <label for="perfil">Perfil:</label>
+              <select
+                id="perfil"
+                required
+                [(ngModel)]="nuevoUsuario.perfil"
+                name="perfil"
+                class="form-control"
+              >
+                <option *ngFor="let perfil of perfiles" [value]="perfil._id">{{ perfil.nombre }}</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Registrar Usuario</button>
           </form>
+
+          <div *ngIf="mensaje" class="alert alert-info mt-3">
+            {{ mensaje }}
+          </div>
         </div>
       </div>
     </div>

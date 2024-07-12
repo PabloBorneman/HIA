@@ -23,30 +23,38 @@
           <img src="/Login.png" alt="Login" />
         </div>
         <div class="form-body">
-          <form>
-            <div class="mb-3">
+          <form name="form">
+            <div class="mb-3 form-group">
+              <label for="username">Username</label>
               <input
                 type="text"
                 class="form-control"
                 id="loginUser"
+                name="username"
                 placeholder="Usuario"
                 [(ngModel)]="userform.username"
-                name="usuario"
               />
             </div>
-            <div class="mb-3">
+            <div class="mb-3 form-group">
+              <label for="password">Password</label>
               <input
                 type="password"
                 class="form-control"
                 id="loginPassword"
+                name="password"
                 placeholder="Contraseña"
                 [(ngModel)]="userform.password"
-                name="password"
               />
             </div>
-            <button type="submit" class="btn" (click)="login()">Login</button>
-            <div class="alert-danger">{{msglogin}}</div>
+            <button type="submit" class="btn btn-primary" (click)="login()">Login</button>
+            <div *ngIf="msglogin" class="alert alert-danger mt-3">
+              {{msglogin}}
+            </div>
+            <div *ngIf="msgSuccess" class="alert alert-success mt-3">
+              {{msgSuccess}}
+            </div>
           </form>
+          <button class="btn btn-secondary mt-2" (click)="redirectToRegister()">Crear Nuevo Usuario</button> <!-- Botón para redirigir al formulario de registro -->
         </div>
       </div>
     </div>

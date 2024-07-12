@@ -1,0 +1,61 @@
+<!-- Formulario para agregar/editar cursos -->
+<div class="container my-4">
+  <div class="card">
+    <div class="card-header">
+      <h1>Gestión de Cursos Dictados</h1>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="editando ? actualizarCurso() : agregarCurso()">
+        <div class="form-group mb-3">
+          <label for="titulo">Título:</label>
+          <input type="text" id="titulo" required [(ngModel)]="nuevoCurso.titulo" name="titulo" class="form-control">
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="descripcion">Descripción:</label>
+          <input type="text" id="descripcion" required [(ngModel)]="nuevoCurso.descripcion" name="descripcion" class="form-control">
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="linkvideo">Link del Video:</label>
+          <input type="text" id="linkvideo" required [(ngModel)]="nuevoCurso.linkvideo" name="linkvideo" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-primary">{{ editando ? 'Actualizar Curso' : 'Agregar Curso' }}</button>
+      </form>
+
+      <div *ngIf="mensaje" class="alert alert-info mt-3">
+        {{ mensaje }}
+      </div>
+
+      <h2 class="mt-4 text-center">Lista de Cursos Dictados</h2>
+      <div class="table-responsive">
+        <table class="table table-striped text-center">
+          <thead>
+            <tr>
+              <th>Título</th>
+              <th>Descripción</th>
+              <th>Link del Video</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let curso of cursos">
+              <td>{{ curso.titulo }}</td>
+              <td>{{ curso.descripcion }}</td>
+              <td>{{ curso.linkvideo }}</td>
+              <td>
+                <button class="btn btn-info btn-sm" (click)="cargarCurso(curso._id)">
+                  <i class="bi bi-pencil-square"></i> Editar
+                </button>
+                <button class="btn btn-danger btn-sm" (click)="eliminarCurso(curso._id)">
+                  <i class="bi bi-trash"></i> Eliminar
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

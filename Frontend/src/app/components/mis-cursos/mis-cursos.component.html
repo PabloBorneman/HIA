@@ -1,0 +1,20 @@
+<div class="container">
+  <div *ngIf="userId" class="user-info">
+    <div *ngIf="cursos.length > 0" class="cursos-list">
+      <h3>Mis Cursos</h3>
+      <ul>
+        <li *ngFor="let curso of cursos" class="curso-item">
+          <h4>{{ curso.titulo }}</h4>
+          <p>{{ curso.descripcion }}</p>
+          <a [href]="curso.linkvideo" target="_blank" class="video-link">Ver Video</a>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="cursos.length === 0" class="no-cursos">
+      <p>No hay cursos disponibles para este usuario.</p>
+    </div>
+  </div>
+  <div *ngIf="!userId" class="no-user">
+    <p>No hay usuario logueado.</p>
+  </div>
+</div>
