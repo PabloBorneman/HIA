@@ -1,0 +1,77 @@
+.admin-background {
+  background-color: #353535; /* Gris claro */
+}
+
+.background-svg {
+  position: absolute;
+}
+
+.crud-user-container {
+  padding-top: 5em;
+  padding-bottom: 5em;
+  border: none;
+}
+
+.custom-header {
+  padding-top: 1em;
+}
+
+.card-body {
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+input, select {
+  border-radius: 25px;
+}
+
+.form-custom-curso {
+  margin: 0 auto;
+  width: 40%;
+}
+
+.img-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  max-width: 50%;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+
+.table-custom tbody,
+.table-custom td,
+.table-custom th {
+  border: none; /* Elimina los bordes del tbody */
+}
+
+.table-custom .action-buttons {
+  white-space: nowrap;
+  text-align: center;
+}
+
+.btn-custom {
+  background-color: #92e3a9;
+  border-radius: 25px;
+  border: none;
+  width: 100%;
+  color: black;
+  margin-top: 1.6em;
+  margin-bottom: 1em;
+}
+
+.btn-custom:hover {
+  background-color: #7ec492;
+}
+
+.fila-custom {
+  border: 1px solid #92e3a9;
+}
+
+.table-custom td {
+  border-right: 1px solid #92e3a9; /* Color de la columna separadora */
+}
