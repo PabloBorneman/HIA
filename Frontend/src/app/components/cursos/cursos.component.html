@@ -1,1 +1,35 @@
-<p>cursos works!</p>
+<div class="container my-4">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="text-center">Nuestros Cursos</h1>
+      <p class="text-center mt-3">
+        Desde Recreo, desarrollamos cursos que abordan temáticas inherentes al ser humano,
+        especialmente aquellos que enfrentan desafíos en diversas situaciones. Nos
+        esforzamos por respetar los acontecimientos y necesidades específicas de cada etapa
+        evolutiva. Nuestros cursos están dirigidos a personas con discapacidad y sus entornos,
+        ofreciendo un enfoque integral con un espacio de consultoría personalizada.
+        Nuestro objetivo es proporcionar abordajes y estrategias multidisciplinares que
+        permitan una comprensión profunda de la situación de cada individuo que recurre a
+        nuestros servicios. De esta manera, buscamos facilitar una respuesta adecuada y
+        efectiva que mejore su calidad de vida y bienestar.
+      </p>
+    </div>
+  </div>
+  <div class="row" *ngIf="cursos.length > 0; else noCursos">
+    <div *ngFor="let curso of cursos" class="col-md-4 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ curso.titulo }}</h5>
+          <p class="card-text">{{ curso.descripcion }}</p>
+          <a *ngIf="curso.linkvideoresumen" [href]="curso.linkvideoresumen" class="card-link" target="_blank">Ver Video Resumen</a>
+          <button class="btn btn-primary mt-3" (click)="verMas(curso._id)">Ver más</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #noCursos>
+    <div class="col-12">
+      <p class="text-center">"Por favor, inicia sesión para ver nuestros cursos."</p>
+    </div>
+  </ng-template>
+</div>

@@ -1,0 +1,15 @@
+<div class="container my-4" *ngIf="curso; else noCurso">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{ curso.titulo }}</h5>
+      <p class="card-text">{{ curso.descripcion }}</p>
+      <a *ngIf="curso.linkvideoresumen" [href]="curso.linkvideoresumen" class="card-link" target="_blank">Ver Video Resumen</a>
+      <p class="card-text">{{ curso.precio }}</p>
+    </div>
+  </div>
+</div>
+<ng-template #noCurso>
+  <div class="container my-4">
+    <p class="text-center">{{ mensaje }}</p>
+  </div>
+</ng-template>
