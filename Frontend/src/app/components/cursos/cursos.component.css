@@ -1,0 +1,65 @@
+.admin-background {
+  background-color: #353535; /* Gris claro */
+  padding-top: 6em;
+}
+
+.background-svg {
+  position: absolute;
+}
+
+.row {
+  color: white;
+  padding-bottom: 7em;
+}
+
+.container {
+  max-width: 1200px;
+  position: relative;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-title {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 1em;
+  color: #555555;
+}
+
+.card-link {
+  color: #92e3a9;
+}
+
+.card-link:hover {
+  color: #00b395;
+}
+
+.btn-primary {
+  background-color: #92e3a9;
+  border: none;
+  border-radius: 25px;
+}
+
+.btn-primary:hover {
+  background-color: #00b395;
+}
+
+.shadow-sm {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+}
+
+.border-0 {
+  border: none !important;
+}

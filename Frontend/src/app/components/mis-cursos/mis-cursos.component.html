@@ -1,20 +1,53 @@
-<div class="container">
-  <div *ngIf="userId" class="user-info">
-    <div *ngIf="cursos.length > 0" class="cursos-list">
-      <h3>Mis Cursos</h3>
-      <ul>
-        <li *ngFor="let curso of cursos" class="curso-item">
-          <h4>{{ curso.titulo }}</h4>
-          <p>{{ curso.descripcion }}</p>
-          <a [href]="curso.linkvideo" target="_blank" class="video-link">Ver Video</a>
-        </li>
-      </ul>
+<svg
+  width="100%"
+  height="100%"
+  id="svg"
+  viewBox="0 0 1440 590"
+  xmlns="http://www.w3.org/2000/svg"
+  class="transition duration-300 ease-in-out delay-150 background-svg"
+>
+  <path
+    d="M 0,600 L 0,150 C 96.42105263157893,157.377990430622 192.84210526315786,164.755980861244 279,148 C 365.15789473684214,131.244019138756 441.0526315789474,90.35406698564593 532,100 C 622.9473684210526,109.64593301435407 728.9473684210527,169.82775119617227 838,170 C 947.0526315789473,170.17224880382773 1059.157894736842,110.33492822966507 1160,97 C 1260.842105263158,83.66507177033493 1350.421052631579,116.83253588516746 1440,150 L 1440,600 L 0,600 Z"
+    stroke="none"
+    stroke-width="0"
+    fill="#00cba9"
+    fill-opacity="0.53"
+    class="transition-all duration-300 ease-in-out delay-150 path-0"
+    transform="rotate(-180 720 300)"
+  ></path>
+  <path
+    d="M 0,600 L 0,350 C 81.35885167464113,380.9569377990431 162.71770334928226,411.9138755980861 254,391 C 345.28229665071774,370.0861244019139 446.48803827751203,297.30143540669854 540,279 C 633.511961722488,260.69856459330146 719.33014354067,296.8803827751196 813,325 C 906.66985645933,353.1196172248804 1008.1913875598086,373.177033492823 1114,376 C 1219.8086124401914,378.822966507177 1329.9043062200958,364.4114832535885 1440,350 L 1440,600 L 0,600 Z"
+    stroke="none"
+    stroke-width="0"
+    fill="#00cba9"
+    fill-opacity="1"
+    class="transition-all duration-300 ease-in-out delay-150 path-1"
+    transform="rotate(-180 720 300)"
+  ></path>
+</svg>
+
+<div class="admin-background">
+  <div class="container">
+    <div *ngIf="userId" class="user-info">
+      <div *ngIf="cursos.length > 0" class="cursos-list">
+        <h3 class="text-center">Mis Cursos</h3>
+        <ul class="curso-card">
+          <li *ngFor="let curso of cursos" class="curso-item">
+            <h4>{{ curso.titulo }}</h4>
+            <p>{{ curso.descripcion }}</p>
+            <a [href]="curso.linkvideo" target="_blank" class="video-link"
+              >Ver Video</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div *ngIf="cursos.length === 0" class="no-cursos">
+        <img src="/404.png" alt="404">
+        <p class="text-center">No hay cursos disponibles para este usuario.</p>
+      </div>
     </div>
-    <div *ngIf="cursos.length === 0" class="no-cursos">
-      <p>No hay cursos disponibles para este usuario.</p>
+    <div *ngIf="!userId" class="no-user text-center">
+      <p>No hay usuario logueado.</p>
     </div>
-  </div>
-  <div *ngIf="!userId" class="no-user">
-    <p>No hay usuario logueado.</p>
   </div>
 </div>
