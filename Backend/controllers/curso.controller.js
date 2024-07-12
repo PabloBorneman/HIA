@@ -13,7 +13,7 @@ cursoCtrl.crearCurso = async (req, res) => {
         console.log('Instructor encontrado:', instructor);  // Añadir depuración
         console.log('Perfil del instructor:', instructor ? instructor.perfil : 'Instructor no encontrado');  // Añadir depuración
 
-        if (instructor && instructor.perfil && instructor.perfil.nombre === 'profecional') {
+        if (instructor && instructor.perfil && instructor.perfil.nombre === 'profesional') {
             console.log('Instructor tiene el perfil de profecional');
             instructor.cursosImpartidos.push(curso._id);
             await instructor.save();
