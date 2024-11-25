@@ -1,17 +1,17 @@
-version: '3.8'
-
 services:
   frontend:
     build:
-      context: ./Frontend # Asegúrate de que esta ruta sea correcta
+      context: ./Frontend  # Ruta correcta para construir el Frontend
+    image: borneman/frontend:latest  # Nombre de la imagen en Docker Hub
     ports:
-      - "4200:4200"  # Asegúrate de mapear correctamente el puerto 4200
+      - "4200:4200"  # Mapeo de puertos para el Frontend
     networks:
       - my-network
 
   backend:
     build:
-      context: ./Backend
+      context: ./Backend  # Ruta correcta para construir el Backend
+    image: borneman/backend:latest  # Nombre de la imagen en Docker Hub
     environment:
       - NODE_ENV=production
       - MONGO_URI=mongodb://mongo1:27017,mongo2:27017,mongo3:27017/mydb?replicaSet=myReplicaSet
@@ -19,10 +19,10 @@ services:
       - mongo1
       - mongo2
       - mongo3
+    ports:
+      - "3000:3000"  # Mapeo de puertos para el Backend
     networks:
       - my-network
-    ports:
-      - "3000:3000"
 
   mongo1:
     image: mongo:5
@@ -30,7 +30,7 @@ services:
     volumes:
       - mongo1-data:/data/db
     ports:
-      - "27017:27017"
+      - "27017:27017"  # Puerto para MongoDB Nodo 1
     networks:
       - my-network
     command: ["mongod", "--replSet", "myReplicaSet", "--bind_ip", "localhost,mongo1"]
@@ -41,7 +41,7 @@ services:
     volumes:
       - mongo2-data:/data/db
     ports:
-      - "27018:27017"
+      - "27018:27017"  # Puerto para MongoDB Nodo 2
     networks:
       - my-network
     command: ["mongod", "--replSet", "myReplicaSet", "--bind_ip", "localhost,mongo2"]
@@ -52,10 +52,67 @@ services:
     volumes:
       - mongo3-data:/data/db
     ports:
-      - "27019:27017"
+      - "27019:27017"  # Puerto para MongoDB Nodo 3
     networks:
       - my-network
     command: ["mongod", "--replSet", "myReplicaSet", "--bind_ip", "localhost,mongo3"]
+
+  mongo-init-replicaset:
+    image: mongo:5
+    container_name: mongo-init-replicaset
+    depends_on:
+      - mongo1
+      - mongo2
+      - mongo3
+    networks:
+      - my-network
+    entrypoint: >
+      bash -c "
+      sleep 10 && 
+      mongo --host mongo1:27017 <<EOF
+        rs.initiate({
+          _id: 'myReplicaSet',
+          members: [
+            { _id: 0, host: 'mongo1:27017' },
+            { _id: 1, host: 'mongo2:27017' },
+            { _id: 2, host: 'mongo3:27017' }
+          ]
+        });
+        EOF
+      "
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml  # Archivo de configuración de Prometheus
+    ports:
+      - "9090:9090"  # Puerto para acceder a Prometheus
+    networks:
+      - my-network
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin  # Usuario administrador
+      - GF_SECURITY_ADMIN_PASSWORD=admin  # Contraseña administrador
+    depends_on:
+      - prometheus
+    ports:
+      - "3001:3000"  # Puerto para acceder a Grafana
+    networks:
+      - my-network
+    volumes:
+      - grafana-data:/var/lib/grafana
+
+  node-exporter:
+    image: prom/node-exporter:latest
+    container_name: node-exporter
+    ports:
+      - "9100:9100"  # Puerto para Node Exporter
+    networks:
+      - my-network
 
 networks:
   my-network:
@@ -64,3 +121,4 @@ volumes:
   mongo1-data:
   mongo2-data:
   mongo3-data:
+  grafana-data:
