@@ -1,0 +1,66 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./Frontend # Asegúrate de que esta ruta sea correcta
+    ports:
+      - "4200:4200"  # Asegúrate de mapear correctamente el puerto 4200
+    networks:
+      - my-network
+
+  backend:
+    build:
+      context: ./Backend
+    environment:
+      - NODE_ENV=production
+      - MONGO_URI=mongodb://mongo1:27017,mongo2:27017,mongo3:27017/mydb?replicaSet=myReplicaSet
+    depends_on:
+      - mongo1
+      - mongo2
+      - mongo3
+    networks:
+      - my-network
+    ports:
+      - "3000:3000"
+
+  mongo1:
+    image: mongo:5
+    container_name: mongo1
+    volumes:
+      - mongo1-data:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - my-network
+    command: ["mongod", "--replSet", "myReplicaSet", "--bind_ip", "localhost,mongo1"]
+
+  mongo2:
+    image: mongo:5
+    container_name: mongo2
+    volumes:
+      - mongo2-data:/data/db
+    ports:
+      - "27018:27017"
+    networks:
+      - my-network
+    command: ["mongod", "--replSet", "myReplicaSet", "--bind_ip", "localhost,mongo2"]
+
+  mongo3:
+    image: mongo:5
+    container_name: mongo3
+    volumes:
+      - mongo3-data:/data/db
+    ports:
+      - "27019:27017"
+    networks:
+      - my-network
+    command: ["mongod", "--replSet", "myReplicaSet", "--bind_ip", "localhost,mongo3"]
+
+networks:
+  my-network:
+
+volumes:
+  mongo1-data:
+  mongo2-data:
+  mongo3-data:
