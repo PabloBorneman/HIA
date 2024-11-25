@@ -130,6 +130,15 @@ services:
     networks:
       - my-network
 
+  backup:
+    image: mongo:5
+    container_name: mongo-backup
+    volumes:
+      - ./backups:/backups  # Carpeta local para almacenar los backups
+    networks:
+      - my-network
+    entrypoint: /bin/sh -c "while true; do sleep 600; mongodump --host=mongo1 --port=27017 --archive=/backups/backup-$(date +%Y%m%d%H%M%S).gz --gzip; done"
+
 networks:
   my-network:
 
