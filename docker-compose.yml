@@ -1,17 +1,17 @@
 services:
   frontend:
     build:
-      context: ./Frontend  # Ruta correcta para construir el Frontend
-    image: borneman/frontend:latest  # Nombre de la imagen en Docker Hub
+      context: ./Frontend
+    image: borneman/frontend:latest
     ports:
-      - "4200:4200"  # Mapeo de puertos para el Frontend
+      - "4200:4200"
     networks:
       - my-network
 
   backend:
     build:
-      context: ./Backend  # Ruta correcta para construir el Backend
-    image: borneman/backend:latest  # Nombre de la imagen en Docker Hub
+      context: ./Backend
+    image: borneman/backend:latest
     environment:
       - NODE_ENV=production
       - MONGO_URI=mongodb://mongo1:27017,mongo2:27017,mongo3:27017/mydb?replicaSet=myReplicaSet
@@ -20,7 +20,7 @@ services:
       - mongo2
       - mongo3
     ports:
-      - "3000:3000"  # Mapeo de puertos para el Backend
+      - "3000:3000"
     networks:
       - my-network
 
@@ -30,7 +30,7 @@ services:
     volumes:
       - mongo1-data:/data/db
     ports:
-      - "27017:27017"  # Puerto para MongoDB Nodo 1
+      - "27017:27017"
     networks:
       - my-network
     command: ["mongod", "--replSet", "myReplicaSet", "--bind_ip", "localhost,mongo1"]
@@ -41,7 +41,7 @@ services:
     volumes:
       - mongo2-data:/data/db
     ports:
-      - "27018:27017"  # Puerto para MongoDB Nodo 2
+      - "27018:27017"
     networks:
       - my-network
     command: ["mongod", "--replSet", "myReplicaSet", "--bind_ip", "localhost,mongo2"]
@@ -52,7 +52,7 @@ services:
     volumes:
       - mongo3-data:/data/db
     ports:
-      - "27019:27017"  # Puerto para MongoDB Nodo 3
+      - "27019:27017"
     networks:
       - my-network
     command: ["mongod", "--replSet", "myReplicaSet", "--bind_ip", "localhost,mongo3"]
@@ -68,7 +68,7 @@ services:
       - my-network
     entrypoint: >
       bash -c "
-      sleep 10 && 
+      sleep 10 &&
       mongo --host mongo1:27017 <<EOF
         rs.initiate({
           _id: 'myReplicaSet',
@@ -81,13 +81,29 @@ services:
         EOF
       "
 
+  mongo-express:
+    image: mongo-express
+    container_name: mongo-express
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongo1
+      - ME_CONFIG_MONGODB_PORT=27017
+      - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
+      - ME_CONFIG_BASICAUTH_USERNAME=admin
+      - ME_CONFIG_BASICAUTH_PASSWORD=admin
+    depends_on:
+      - mongo1
+    ports:
+      - "8081:8081"
+    networks:
+      - my-network
+
   prometheus:
     image: prom/prometheus:latest
     container_name: prometheus
     volumes:
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml  # Archivo de configuración de Prometheus
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
     ports:
-      - "9090:9090"  # Puerto para acceder a Prometheus
+      - "9090:9090"
     networks:
       - my-network
 
@@ -95,12 +111,12 @@ services:
     image: grafana/grafana:latest
     container_name: grafana
     environment:
-      - GF_SECURITY_ADMIN_USER=admin  # Usuario administrador
-      - GF_SECURITY_ADMIN_PASSWORD=admin  # Contraseña administrador
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
     depends_on:
       - prometheus
     ports:
-      - "3001:3000"  # Puerto para acceder a Grafana
+      - "3001:3000"
     networks:
       - my-network
     volumes:
@@ -110,7 +126,7 @@ services:
     image: prom/node-exporter:latest
     container_name: node-exporter
     ports:
-      - "9100:9100"  # Puerto para Node Exporter
+      - "9100:9100"
     networks:
       - my-network
 
